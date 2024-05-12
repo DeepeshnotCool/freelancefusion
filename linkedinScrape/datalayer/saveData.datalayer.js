@@ -1,6 +1,7 @@
 const LinkedinContactMetaDataMongo = require('../models/linkedinContactMetaData.model');
 const UserProfileMongo = require('../models/userProfile.model');
 const opportunityProfileMongo = require('../models/opportunityProfile.model');
+const appiledUserMongo = require('../models/appliedUser.model');
 const { v5: uuidv5 } = require('uuid');
 const config = require('../config.json');
 const moment = require('moment');
@@ -89,6 +90,40 @@ class saveData {
             throw new Error(`Error saving Opportunity: ${error.message}`);
         }
     }
+
+    async saveAppliedUsersData(reqObj) {
+        try {
+            // Generate UUID using projectDescription as unique Identifier
+            const appliedUserUUID = uuidv5(reqObj?.userProfileUUID + reqObj?.opportunityUUID, config.namespace); 
+
+            // save appliedUser to db
+            const result = await appiledUserMongo.create({
+                appliedUserUUID: appliedUserUUID,
+                opportunityUUID: reqObj?.opportunityUUID,
+                userProfileUUID: reqObj?.userProfileUUID,
+                skillsRequired: reqObj?.skillsRequired || [],
+                LinkedinSkills: reqObj?.LinkedinSkills || [],
+                userSkills: reqObj?.userSkills || [],
+                experienceLevelRequired: reqObj?.experienceLevelRequired || "",
+                userExperienceLevel: reqObj?.userExperienceLevel || "",
+                name: reqObj?.name || "",
+            });
+
+            // Check if document was successfully saved
+            if (result) {
+                console.log('appliedUserData saved successfully');
+            } else {
+                throw new Error('Failed to save appliedUserData');
+            }
+
+            return {appliedUserUUID: appliedUserUUID };
+
+        } catch (error) {
+            throw new Error(`Error saving appliedUserData: ${error.message}`);
+        }
+    }
+
+
 }
 
 module.exports = saveData;

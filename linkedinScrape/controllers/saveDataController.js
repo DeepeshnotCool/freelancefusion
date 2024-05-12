@@ -30,9 +30,23 @@ class SaveDataController {
         try {
             const saveData = new SaveData();
             const userData = await saveData.saveOpportunityData(req?.body);
-            const result = {opportunityUUID: userData?.opportunityUUID };
+            const result = { opportunityUUID: userData?.opportunityUUID };
 
             res.status(200).json({ message: 'Opportunity Data saved successfully', result: result });
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    }
+
+    async saveAppliedUsers(req, res) {
+        const { opportunityUUID, userProfileUUID } = req.body;
+
+        try {
+            const saveData = new SaveData();
+            const appliedUserData = await saveData.saveAppliedUsersData(req?.body);
+            const result = { appliedUserUUID: appliedUserData?.appliedUserUUID };
+
+            res.status(200).json({ message: 'applied User Data saved successfully', result: result });
         } catch (error) {
             res.status(500).json({ error: error.message });
         }

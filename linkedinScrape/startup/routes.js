@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const scrapeRouter = require('../routes/linkedinScrape.route');
 const saveRouter = require('../routes/saveData.route');
+const getDataRouter = require('../routes/getData.route');
 
 
 module.exports = function (app) {
@@ -19,4 +20,5 @@ module.exports = function (app) {
 
   app.use('/linkedin', scrapeRouter);
   app.use('/save', saveRouter);
+  app.use('/getData', getDataRouter);
 };
