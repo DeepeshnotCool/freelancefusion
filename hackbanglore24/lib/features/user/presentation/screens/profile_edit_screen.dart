@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_validator/form_validator.dart';
-import 'package:go_router/go_router.dart';
+import 'package:hackbanglore24/features/auth/presentation/controllers/auth_controller.dart';
 import 'package:hackbanglore24/features/user/data/models/profile_model.dart';
 import 'package:hackbanglore24/features/user/data/repository/profile_repository.dart';
 import 'package:hackbanglore24/features/user/presentation/widgets/skill_selection_dialog.dart';
@@ -162,7 +162,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                                 skills: _allSelectedSkills.value,
                                 profileUrl: "");
                             await ref.read(profileRepositoryProvider).saveProfileData(profile);
-                            context.go('/profile-view');
+                            ref.read(authControllerProvider.notifier).updateProfile();
                           }
                         },
                         child: const Padding(

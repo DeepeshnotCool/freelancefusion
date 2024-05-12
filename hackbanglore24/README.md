@@ -1,16 +1,22 @@
-# hackbanglore24
+# HackBanglore Hackathon: Empowering Freelancers through Easy Job Search (AngelHack)
+Project Name: FreelanceFusion
 
-A new Flutter project.
 
-## Getting Started
+## Problem Statement:
 
-This project is a starting point for a Flutter application.
+This project aims to create a digital platform that empowers people to easily search for freelance jobs. We believe a user-friendly platform can bridge the gap between skilled freelancers and potential clients.
 
-A few resources to get you started if this is your first Flutter project:
+## Solution:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+We've developed a platform (web application, mobile app, etc.) that allows:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Freelancers:
+Create profiles showcasing their skills, experience, and portfolio.
+Browse and search for relevant freelance jobs based on skills, category, and location.
+Apply for jobs and communicate directly with potential clients.
+# Clients:
+Post freelance job openings with clear descriptions and requirements.
+Search for qualified freelancers based on specific skills and experience.
+Review freelancer profiles and communicate directly to shortlist candidates.
+Technologies Used:
+

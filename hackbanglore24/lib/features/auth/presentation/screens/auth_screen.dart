@@ -22,14 +22,13 @@ class _AuthScreenState extends State<AuthScreen> {
               padding: const EdgeInsets.symmetric(horizontal: kMediumSize),
               child: Column(
                 children: [
-                      const SizedBox(height: 100,),
-                  const CircleAvatar(radius: 60,),
-                  const SizedBox(height: kLargeSize,),
+                  Image.asset('assets/Freelancefusion_transparent.png',
+                  height: 240,),
                   ValueListenableBuilder(
                     valueListenable: userType,
                     builder: (context, value, _) {
                       return Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           _userTypeButton("I'm \nClient", 'assets/client.jpg', value == UserType.client,
                               (){
@@ -86,8 +85,8 @@ class _AuthScreenState extends State<AuthScreen> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(kMediumSize),
               child: Container(
-                height: 240,
-                width: 180,
+                height: 220,
+                width: 160,
                 decoration: BoxDecoration(
                     image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover)
                 ),
@@ -103,7 +102,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             ]
                           )
                         ),
-                        child: Text(title, style: Theme.of(context).textTheme.headlineLarge, textAlign: TextAlign.center,))),
+                        child: Text(title, style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center,))),
               ),
             ),
           ),

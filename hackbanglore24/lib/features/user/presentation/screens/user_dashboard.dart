@@ -22,7 +22,7 @@ class _UserDashboardState extends State<UserDashboard> {
           builder: (context, ref, _) {
             return Scaffold(
               appBar: AppBar(
-                // title: Text('Hello, User'),
+                title: const Text('Dashboard'),
                 automaticallyImplyLeading: false,
                 actions: [
                   IconButton(onPressed: (){

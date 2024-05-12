@@ -19,6 +19,9 @@ GoRouter router(RouterRef ref) {
         redirect: (context, routeState)async{
           if(authController is LoggedInState){
             if(authController.userType == UserType.freelancer){
+              if(!authController.profileFilled){
+                return '/edit';
+              }
               return '/dashboard';
             }else{
               return '/client-dashboard';

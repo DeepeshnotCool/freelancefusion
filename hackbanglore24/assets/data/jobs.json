@@ -1,0 +1,93 @@
+[
+  {
+    "projectDescription": "Develop a user-friendly mobile app for e-commerce platform.",
+    "skillsRequired": ["Java", "Kotlin", "Android Studio/Xcode"],
+    "duration": "3",
+    "cost": "70",
+    "experienceLevelRequired": "1"
+  },
+  {
+    "projectDescription": "Develop a web application with a secure backend and user interface.",
+    "skillsRequired": ["JavaScript (front-end)", "Node.js (back-end)", "React/Angular/Vue.js (front-end framework)"],
+    "duration": "7",
+    "cost": "120",
+    "experienceLevelRequired": "3"
+  },
+  {
+    "projectDescription": "Develop and deploy a microservices architecture for a high-traffic web application.",
+    "skillsRequired": ["Spring Boot", "Docker", "Kubernetes"],
+    "duration": "10",
+    "cost": "150",
+    "experienceLevelRequired": "3+"
+  },
+  {
+    "projectDescription": "Create and manage automated testing scripts for a web application.",
+    "skillsRequired": ["Selenium", "Cypress", "Jest/Mocha (testing frameworks)"],
+    "duration": "2",
+    "cost": "50",
+    "experienceLevelRequired": "1"
+  },
+  {
+    "projectDescription": "Develop a web application using a server-side rendering framework.",
+    "skillsRequired": ["Python (Django/Flask)", "Ruby (Rails)", "PHP (Laravel/Symfony)"],
+    "duration": "5",
+    "cost": "90",
+    "experienceLevelRequired": "2"
+  },
+  {
+    "projectDescription": "Integrate third-party APIs into a software application.",
+    "skillsRequired": ["API Integration Techniques", "RESTful API Design"],
+    "duration": "2",
+    "cost": "60",
+    "experienceLevelRequired": "2"
+  },
+  {
+    "projectDescription": "Develop and maintain APIs for data exchange between different applications.",
+    "skillsRequired": ["RESTful API Design", "API Documentation Tools"],
+    "duration": "6",
+    "cost": "100",
+    "experienceLevelRequired": "2"
+  },
+  {
+    "projectDescription": "Develop a desktop application using a cross-platform framework.",
+    "skillsRequired": ["Electron/Qt", "C#/.NET", "Java (with Swing/JavaFX)"],
+    "duration": "4",
+    "cost": "80",
+    "experienceLevelRequired": "2"
+  },
+  {
+    "projectDescription": "Develop and integrate machine learning algorithms into a software application.",
+    "skillsRequired": ["Python", "Scikit-learn", "TensorFlow/PyTorch"],
+    "duration": "8",
+    "cost": "130",
+    "experienceLevelRequired": "3+"
+  },
+  {
+    "projectDescription": "Develop and maintain a version control system for a software project.",
+    "skillsRequired": ["Git", "GitHub/GitLab", "Version Control Best Practices"],
+    "duration": "Ongoing",
+    "cost": "35",
+    "experienceLevelRequired": "1"
+  },
+  {
+    "projectDescription": "Develop unit tests and integration tests for a software application.",
+    "skillsRequired": ["Unit Testing Frameworks (JUnit/Mocha etc.)", "Test-Driven Development (TDD) Principles"],
+    "duration": "2",
+    "cost": "40",
+    "experienceLevelRequired": "2"
+  },
+  {
+    "projectDescription": "Deploy a web application to a cloud platform.",
+    "skillsRequired": ["AWS/Azure/GCP Cloud Platforms", "CI/CD Pipelines"],
+    "duration": "1",
+    "cost": "25",
+    "experienceLevelRequired": "2"
+  },
+  {
+    "projectDescription": "Develop a progressive web application (PWA) with offline functionality.",
+    "skillsRequired": ["JavaScript Frameworks (React/Angular/Vue.js)", "Service Workers"],
+    "duration": "3",
+    "cost": "75",
+    "experienceLevelRequired": "2"
+  }
+]

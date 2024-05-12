@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/services.dart';
 import 'package:hackbanglore24/features/client/data/models/add_project_model.dart';
 import 'package:hackbanglore24/utils/shared_prefs.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -28,4 +29,16 @@ class ClientRepository{
     final json = jsonDecode(data);
     return AddProjectModel.fromJson(json);
   }
+
+  Future<List<AddProjectModel>> getProjectList() async {
+    String data = await rootBundle.loadString('assets/data/jobs.json');
+    final List<dynamic> jsonData = json.decode(data);
+    final jobsList = jsonData.map((e) => AddProjectModel.fromJson(e)).toList();
+    return jobsList;
+    print(jsonData);
+    final jobs = addProjectModelFromJson(data);
+    return jobs;
+  }
+
+
 }
