@@ -1,7 +1,10 @@
 import os
-from langchain.chain import RunnablePassthrough
+from langchain.chain import RunnablePassthrough, RunnableParallel
 from langchain.hub import hub
 from langchain.wrappers import ChatOpenAI
+import pandas as pd
+from langchain.text import DataFrameLoader, RecursiveCharacterTextSplitter, Chroma, OpenAIEmbeddings
+from langchain.parsers import StrOutputParser
 import json
 import openai
 
@@ -42,17 +45,38 @@ def generate_customised_user_profile_service(user_profile_data, project_descript
 
     prompt += f"\nFollowers on LinkedIn: {user_linkedin_data['result']['follower_count']}\n"
 
-    # Setting up LangChain for conversational AI
-    llm_chat = ChatOpenAI(model_name="text-davinci-003", temperature=0.5)
-    prompt_chat = hub.pull("langchain/prompt/chat_prompt_template")
+    # Constructing the LangChain
+    llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.5)
+    prompt_template = hub.pull("langchain/prompt/chat_prompt_template")
+    rag_prompt = hub.pull("rlm/rag-prompt")
 
-    # Combining LangChain components
-    chain = RunnablePassthrough() | prompt_chat | llm_chat
+    rag_chain = (
+            RunnablePassthrough.assign(context=(lambda x: x["context"]))
+            | rag_prompt
+            | llm
+            | StrOutputParser()
+    )
 
-    # Generating the profile using LangChain
-    generated_profile = chain.invoke({"question": prompt})
+    rag_chain = RunnableParallel(
+        {"context": rag_chain, "question": prompt_template}
+    ).assign(answer=rag_chain)
+
+    generated_profile = rag_chain.invoke({"question": prompt})
     generated_profile = json.loads(generated_profile)
 
+    return generated_profile
+
+
+def feedback_mechanism(feedback_score):
+    if feedback_score < 0.9:
+        return True
+    return False
+
+def agent_executor(user_profile_data, project_description, skills_required, user_linkedin_data):
+    generated_profile = generate_customised_user_profile_service(user_profile_data, project_description, skills_required, user_linkedin_data)
+    feedback_score = generated_profile.get("score", 1.0)
+    if feedback_mechanism(feedback_score):
+        generated_profile = generate_customised_user_profile_service(user_profile_data, project_description, skills_required, user_linkedin_data)
     return generated_profile
 
 
