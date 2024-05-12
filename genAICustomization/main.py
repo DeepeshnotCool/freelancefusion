@@ -1,16 +1,13 @@
-# This is a sample Python script.
+# app.py
+from flask import Flask
+from routes import genAI_routes
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+app = Flask(__name__)
 
+# Register blueprints for each route group
+app.register_blueprint(genAI_routes)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+if __name__ == "__main__":
+    # Run Flask app
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    app.run(debug=True, port=5000)
