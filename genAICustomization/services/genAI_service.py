@@ -11,7 +11,7 @@ import openai
 
 
 
-os.environ["OPENAI_API_KEY"] = "sk-xQtDrK180lCaUJxDA5nJT3BlbkFJdmSxAUDZiOP3pkfXFK6"
+os.environ["OPENAI_API_KEY"] = ""
 
 
 
